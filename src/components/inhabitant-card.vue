@@ -14,13 +14,13 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 
-import type inhabitantCard from '@/types/inhabitantCard';
+import type { inhabitantCardType } from '@/types/main'
 
 export default defineComponent( {
 
   props: {
     cards: {
-      type: Array as PropType<inhabitantCard[]>,
+      type: Array as PropType<inhabitantCardType[]>,
       default: () => []
     },
   },
