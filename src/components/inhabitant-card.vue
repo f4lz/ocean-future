@@ -1,60 +1,80 @@
 <template>
   <div class="card" v-for="card in cards" :key="card.id">
-    <img :src="card.blob" :alt="card.name">
-    <div> {{ card.name }} </div>
+    <router-link class="card__link" to="main">
+      <img  class="card__img" :src="card.src" :alt="card.name" />
+    </router-link>
+    <div class="card__title">
+        <h2 class="card__title-text">{{ card.name }}</h2>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-// @ts-ignore
-import { defineComponent, ref } from '@vue/composition-api'
 
-export interface inhabitantCard {
-  id?: number,
-  name?: string,
-  blob?: string
-}
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+
+import type inhabitantCard from '@/types/inhabitantCard';
+
 export default defineComponent( {
-  name: 'inhabitant-card',
-  setup () {
-    const cards = ref<inhabitantCard[]>( [
-      {
-        id: 1,
-        name: 'Электрический угорь',
-        blob: 'https//:',
-      },
-      {
-        id: 2,
-        name: 'Байкальский непр',
-        blob: 'https//:',
-      },
-      {
-        id: 3,
-        name: 'Акулы',
-        blob: 'https//:',
-      },
-      {
-        id: 4,
-        name: 'Черепахи',
-        blob: 'https//:',
-      },
-      {
-        id: 5,
-        name: 'Камчатский краб',
-        blob: 'https//:',
-      },
-      {
-        id: 6,
-        name: 'Медузы',
-        blob: 'https//:',
-      },
-    ] )
 
-    return {
-      cards
-    }
+  props: {
+    cards: {
+      type: Array as PropType<inhabitantCard[]>,
+      default: () => []
+    },
   },
 
 } )
 
 </script>
+
+<style lang="scss" scoped>
+
+.card {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; 
+  width: 360px;
+  height: 449px;
+
+  &__title {  
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    color: white;
+    opacity: 0;
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    transition: .7s;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; 
+      background: rgba(0,0,0,.2);
+      opacity: 0;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+    &:hover {
+      transform: scale( 1.05 );
+      transition: .7s;
+
+    }
+    &:hover + .card__title {
+      opacity: 1;
+    }
+  }
+  
+}
+
+</style>

@@ -1,7 +1,12 @@
-require('@rushstack/eslint-patch/modern-module-resolution')
+// eslint-disable-next-line no-undef
+require( '@rushstack/eslint-patch/modern-module-resolution' )
 
+// eslint-disable-next-line no-undef
 module.exports = {
   root: true,
+  env: {
+    node: true
+  },
   'extends': [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
@@ -13,6 +18,7 @@ module.exports = {
     '/utils/md5/*.*'
   ],
   rules: {
+    'vue/multi-word-component-names': 'off',
     'no-console': 'off',
     'quotes': [ 'error', 'single' ],
     'space-in-parens': [ 'error', 'always' ],

@@ -14,12 +14,13 @@
   "dependencies": {
     "@vue/composition-api": "^1.7.1",
     "pinia": "^2.0.32",
+    "vite-plugin-require": "^1.1.10",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/eslint-config-prettier": "^7.1.0",
