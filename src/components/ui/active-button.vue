@@ -1,5 +1,9 @@
 <template>
-  <div></div>
+  <button v-bind="$attrs">
+    <slot>
+      Обратная связь
+    </slot>
+  </button>
 </template>
 
 <script lang="ts">

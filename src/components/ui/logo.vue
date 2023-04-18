@@ -1,27 +1,20 @@
 <template>
-    <div>
-        <img    
-            src="@/assets/images/logo.svg" 
-            alt="logo dolphin and sea" 
-            :style="{ width: size + 'px', height: size + 'px' }"
-        >
-    </div>
+  <img    
+    src="@/assets/logo.svg" 
+    alt="logo dolphin and sea" 
+    :width="size"
+    :height="size"
+  >
 </template>
   
-  <script lang="ts">
-  
-  import { defineComponent, defineProps } from 'vue'
-  
+<script lang="ts" setup>
+
   const props = defineProps( {
     size: {
-        type: Number,
-        requaired: true,
+      type: Number,
         default: () => 100,
     },
   } )
 
-  export default defineComponent( {
-    setup () {
-    }
-  } )
-  </script>
+
+</script>
