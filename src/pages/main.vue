@@ -7,7 +7,6 @@
       <icon-card :icons="icons"/>
     </div> 
   </section>
-  <footer-side class="footer"/>
 </template>
 
 <script lang="ts">
@@ -16,7 +15,6 @@ import { defineComponent, ref } from 'vue'
 
 import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
-import footerSide from '@/components/layouts/footer.vue'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -27,7 +25,6 @@ export default defineComponent( {
   components: {
     inhabitantCard,
     iconCard,
-    footerSide
   },
 
   setup () {
