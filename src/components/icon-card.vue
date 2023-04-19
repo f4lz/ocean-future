@@ -1,10 +1,9 @@
 <template>
-    <div class="icons__box" v-for="icon in icons" :key="icon.id">
+    <div class="icons__box" v-for="icon in icons" :key="icon.id" :class="{ border : icon.hr }">
       <div class="icons__description">
         <img :src="icon.src" :alt="icon.alt">
         <p class="icons__description-text">{{ icon.text }}</p>
       </div>
-      <span v-if="icon.hr" class="icons__line"></span>
     </div>
 </template>
 
@@ -33,32 +32,31 @@ export default defineComponent( {
 
 <style lang="scss" scoped>
 
-.icons{
-  
-  &__line {
-    display: block;
-    width: 2px;
-    height: 130px;
-    background-color: black;
-    margin-left: 150px;
-  }
+.icons {
 
   &__box {
     display: flex;
+    align-self: flex-start;
+    border-right: 2px transparent;
   }
 
   &__description {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    gap: 10px;
-
+    justify-content: center;
+    min-width: 350px;
+    min-height: 130px;
+    gap: 20px;
     &-text {
-      max-width: 242px;
+      text-align: center;
+      max-width: 200px;
     }
   }
+}
+
+.border {
+  border-right: 2px black solid;
 }
 
 

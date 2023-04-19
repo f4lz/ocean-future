@@ -81,7 +81,7 @@ export default defineComponent( {
       },
       {
         id: 3,
-        text: 'Телефон+7 926 750 57 44',
+        text: 'Телефон +7 926 750 57 44',
         src: require ( '@/assets/telephone.svg' ),
         alt: 'Телефон',
         hr: false
@@ -113,9 +113,8 @@ export default defineComponent( {
 
       &__wrapper {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
-      align-items: flex-start;
+      justify-content: center;
     }
   }
 

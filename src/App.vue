@@ -1,7 +1,7 @@
 <template>
   <header-side/>
   <router-view/>
-  <footer-side/>
+  <footer-side class="footer"/>
 </template>
 
 <script lang="ts">
