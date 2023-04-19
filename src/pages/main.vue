@@ -1,9 +1,9 @@
 <template>
-  <div class="cards__wrapper">
+  <div class="cards__wrapper container">
     <inhabitant-card :cards="cards"/>
   </div>
   <section class="icons">
-    <div class="icons__wrapper">
+    <div class="icons__wrapper container">
       <icon-card :icons="icons"/>
     </div> 
   </section>
@@ -100,30 +100,23 @@ export default defineComponent( {
 <style lang="scss" scoped>
 
   .cards__wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
   }
 
-  .icons__wrapper{
-    display: flex;
-    max-width: 1440px;
-    margin: 0 auto;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .icons{
+  .icons {
     padding: 100px 0 80px;
     margin-top: 20px;
     background-color: #181A1B;
+
+      &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
   }
 
-  .footer{
-    margin-top: 60px;
-  }
 </style>

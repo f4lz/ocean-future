@@ -9,12 +9,11 @@
   
 <script lang="ts" setup>
 
-  const props = defineProps( {
-    size: {
-      type: Number,
-        default: () => 100,
-    },
-  } )
-
+defineProps( {
+  size: {
+    type: Number,
+      default: () => 100,
+  },
+} )
 
 </script>

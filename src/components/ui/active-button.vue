@@ -1,28 +1,32 @@
 <template>
-  <button v-bind="$attrs" class="button__feedback">
+  <button v-bind="$attrs" class="active-button" :style="`background-color:${backColor}; border:${border}`">
     <slot>
       Обратная связь
     </slot>
   </button>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 
-import { defineComponent } from 'vue'
-
-export default defineComponent( {
-  setup () {}
+defineProps( {
+  backColor: {
+    type: String,
+      default: () => '#181A1B',
+  },
+  border: {
+    type: String,
+      default: () => 'none',
+  },
 } )
 
 </script>
 
 <style lang="scss">
-  .button__feedback{
-    display: flex;
+
+  .active-button {
     padding: 10px 18px;
-    background-color: #181A1B;
     color: white;
-    border: none;
+    transition: 0.7s;
     
     &:hover{
       background-color: #1e2224;
@@ -33,4 +37,5 @@ export default defineComponent( {
       background-color: #4b4c4d;
     }
   } 
+  
 </style>

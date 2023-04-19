@@ -34,24 +34,28 @@ export default defineComponent( {
 <style lang="scss" scoped>
 
 .icons{
-  &__line{
+  
+  &__line {
     display: block;
     width: 2px;
     height: 130px;
     background-color: black;
     margin-left: 150px;
   }
-  &__box{
+
+  &__box {
     display: flex;
   }
-  &__description{
+
+  &__description {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 10px;
-    &-text{
+
+    &-text {
       max-width: 242px;
     }
   }

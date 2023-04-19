@@ -20,8 +20,10 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+
   body{
     background-color: #393939;
     color: white;
   }
+  
 </style>
