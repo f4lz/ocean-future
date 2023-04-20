@@ -1,5 +1,5 @@
 <template>
-  <header-side/>
+  <header-side style="margin-bottom:30px"/>
   <router-view/>
   <footer-side class="footer"/>
 </template>

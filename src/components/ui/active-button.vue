@@ -1,12 +1,12 @@
 <template>
-  <button v-bind="$attrs" class="active-button" :style="`background-color:${backColor}; border:${border}`">
+  <button v-bind="$attrs" class="active-button">
     <slot>
       Обратная связь
     </slot>
   </button>
 </template>
 
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 
 defineProps( {
   backColor: {
@@ -19,22 +19,25 @@ defineProps( {
   },
 } )
 
-</script>
+</script> -->
 
 <style lang="scss">
 
   .active-button {
     padding: 10px 18px;
     color: white;
-    transition: 0.7s;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+    background-color: black;
     
     &:hover{
-      background-color: #1e2224;
-      transition: 0.7s;
+      opacity: 0.7;
+      transition: .2s;
     }
 
     &:active{
-      background-color: #4b4c4d;
+      opacity: 0.6;
     }
   } 
   
