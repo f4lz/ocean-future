@@ -1,7 +1,6 @@
 <template>
   <footer class="footer__inner">
     <logo :size="300"/>
-    <active-button/>
     <p class="footer__text">© All Rights Reserved. Acme Inc.211-323@polytech.com</p>
   </footer>
 </template>
@@ -9,24 +8,15 @@
 <script lang="ts">
 
   import logo from '@/components/ui/logo.vue';
-  import activeButton from '@/components/ui/active-button.vue';
   import { defineComponent } from 'vue'
-
 
   export default defineComponent( { 
 
     components: {
       logo,
-      activeButton
     },
 
-    setup () {
-    
-
-    }
   } )
-
-
 
 </script>
 
