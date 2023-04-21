@@ -1,6 +1,6 @@
 <template>
   <div class="card" v-for="card in cards" :key="card.id">
-    <router-link class="card__link" to="main">
+    <router-link class="card__link" :to="`/${card.id}`">
       <img  class="card__img" :src="card.src" :alt="card.name" />
     </router-link>
     <div class="card__title">

@@ -1,6 +1,6 @@
 <template>
-  <header-side style="margin-bottom:30px"/>
-  <router-view/>
+  <header-side class="header-side"/>
+  <router-view class="main"/>
   <footer-side class="footer"/>
 </template>
 
@@ -19,11 +19,3 @@ export default defineComponent( {
 
 </script>
 
-<style lang="scss">
-
-  body{
-    background-color: #393939;
-    color: white;
-  }
-  
-</style>

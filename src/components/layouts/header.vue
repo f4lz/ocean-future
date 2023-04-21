@@ -9,7 +9,7 @@
           <li class="nav__items"><a href="" class="nav__links">Шоу</a></li>
         </ul>
       </nav>
-      <logo class="header__logo"/>
+      <logo class="header__logo" @click="$router.push({name:'main'})"/>
       <active-button class="header__button"/>
     </div>
   </header>
@@ -67,15 +67,6 @@ export default defineComponent ( {
       display: flex;
       gap: 20px;
     }
-    
+   
   }
-
-  .nav__item-list{
-    gap: 21px;
-  }
-
-  .nav__items {
-    display: inline;
-  }
-
 </style>
