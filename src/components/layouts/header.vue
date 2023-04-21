@@ -59,7 +59,8 @@ export default defineComponent ( {
     &__button {
       background-color: #077EA8;
       text-transform: uppercase;
-      border: 1px solid white;
+      border: none;
+      border-radius: 4px;
       // font-size: $fz-title;
     }
 
