@@ -7,6 +7,16 @@
       <icon-card :icons="icons"/>
     </div> 
   </section>
+  <div class="price__list">
+    <h2>Цена</h2>
+    <p>*описание*</p>
+    <div>
+      <price-list/>
+    </div>
+    <active-button>
+      Купить
+    </active-button>
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,6 +25,8 @@ import { defineComponent, ref } from 'vue'
 
 import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
+import priceList from '@/components/price-list.vue'
+import activeButton from '@/components/ui/active-button.vue';
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -25,6 +37,8 @@ export default defineComponent( {
   components: {
     inhabitantCard,
     iconCard,
+    priceList,
+    activeButton,
   },
 
   setup () {
@@ -38,7 +52,7 @@ export default defineComponent( {
     },
     {
       id: 2,
-      name: 'Байкальские непры',
+      name: 'Байкальские нерпы',
       src: require ( '@/assets/nerpy.jpg' )
     },
     {
@@ -116,6 +130,14 @@ export default defineComponent( {
       flex-wrap: wrap;
       justify-content: center;
     }
+  }
+
+  .price__list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 620px;
+    margin: 0 auto;
   }
 
 </style>
