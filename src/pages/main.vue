@@ -7,6 +7,11 @@
       <icon-card :icons="icons"/>
     </div> 
   </section>
+  <section class="gallery">
+    <div class="gallery__wrapper container">
+      <gallery/>
+    </div>    
+  </section>
   <div class="price__list">
     <h2>Цена</h2>
     <p>*описание*</p>
@@ -26,7 +31,8 @@ import { defineComponent, ref } from 'vue'
 import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
 import priceList from '@/components/price-list.vue'
-import activeButton from '@/components/ui/active-button.vue';
+import activeButton from '@/components/ui/active-button.vue'
+import gallery from '@/components/gallery.vue'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -39,6 +45,7 @@ export default defineComponent( {
     iconCard,
     priceList,
     activeButton,
+    gallery
   },
 
   setup () {
@@ -138,6 +145,9 @@ export default defineComponent( {
     }
   }
 
+  .gallery{
+    margin-top: 20px;
+  }
   .price__list {
     display: flex;
     align-items: center;
