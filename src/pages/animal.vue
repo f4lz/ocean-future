@@ -1,55 +1,29 @@
 <template>
-  <div class="cards__wrapper container">
-    <inhabitant-card :cards="cards"/>
-  </div>
-  <section class="icons">
-    <div class="icons__wrapper container">
-      <icon-card :icons="icons"/>
-    </div> 
-  </section>
-  <section class="gallery">
-    <div class="gallery__wrapper container">
-      <gallery/>
-    </div>    
-  </section>
-  <div class="price__list">
-    <h2>Цена</h2>
-    <p>*описание*</p>
-    <div>
-      <price-list/>
+  <div class="animal__wrapper animal container">
+    <div class="animal__info info">
+      <h2 class="info__title">
+      {{ selectedCard.name }}
+    </h2>
+    <p class="info__description">{{ selectedCard.description }}</p>
     </div>
-    <active-button>
-      Купить
-    </active-button>
+    <img :src="selectedCard.src" :alt="selectedCard.alt">
   </div>
 </template>
 
 <script lang="ts">
 
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 
-import inhabitantCard from '@/components/inhabitant-card.vue'
-import iconCard from '@/components/icon-card.vue'
-import priceList from '@/components/price-list.vue'
-import activeButton from '@/components/ui/active-button.vue'
-import gallery from '@/components/gallery.vue'
+import { useRoute } from 'vue-router'
 
-import type { inhabitantCardType, iconsCard } from '@/types/main'
+import type { inhabitantCardType } from '@/types/main'
 
 export default defineComponent( {
 
-  name: 'main-page',
-
-  components: {
-    inhabitantCard,
-    iconCard,
-    priceList,
-    activeButton,
-    gallery
-  },
-
   setup () {
-    
+
+    const route = useRoute()
+
     const cards = ref<inhabitantCardType[]>( [
 
     {
@@ -89,71 +63,59 @@ export default defineComponent( {
       src: require ( '@/assets/krab.jpg' )
     }
     ] );
-    
-    const icons = ref<iconsCard[]>( [
 
-      {
-        id: 1,
-        text: 'Пушкинская ул., 107/72, Ростов-на-Дону',
-        src: require ( '@/assets/map.svg' ),
-        alt: 'Карта',
-        hr: true
-      },
-      {
-        id: 2,
-        text: '10:00 – 22:00,без выходных',
-        src: require ( '@/assets/time.svg' ),
-        alt: 'Время',
-        hr: true
-      },
-      {
-        id: 3,
-        text: 'Телефон +7 926 750 57 44',
-        src: require ( '@/assets/telephone.svg' ),
-        alt: 'Телефон',
-        hr: false
-      }
-    ] );
+
+    const selectedCard = ref<inhabitantCardType | any>( {} )
+
+    function updateSelectedCard ( newValue: object ) {
+      selectedCard.value = newValue
+    }
+
+    onMounted ( () => { 
+      selectedCard.value = cards.value.map( ( card ) => { 
+        if ( card.id == Number( route.params.id ) ) {
+          return card
+        }
+        return null
+      } ).filter ( ( card ) => card !== null ) 
+      updateSelectedCard( selectedCard.value[ 0 ] )
+    } )
 
     return {
-      cards,
-      icons
+      selectedCard
     }
   }
+  
 } )
 
 </script>
 
 <style lang="scss" scoped>
 
-  .cards__wrapper {
+  .animal {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    align-items: flex-start;
     flex-wrap: wrap;
-  }
+    gap: 40px;
+    margin-bottom: 68px;
 
-  .icons {
-    padding: 100px 0 80px;
-    margin-top: 20px;
-    background-color: #181A1B;
+    &__info {
+      max-width: 443px;
+      font-size: 24px;
 
-      &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      .info__title {
+        font-size: 32px;
+        vertical-align: top;
+        margin-bottom: 10px;
+      }
+
+      .info__description {
+
+      }
     }
   }
 
-  .gallery{
-    margin-top: 20px;
-  }
-  .price__list {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 620px;
-    margin: 0 auto;
+  img {
   }
 
 </style>

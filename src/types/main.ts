@@ -2,6 +2,7 @@ export interface inhabitantCardType {
   id: number
   name: string
   src: any
+  description: string
 }
 
 export interface iconsCard {
@@ -10,5 +11,11 @@ export interface iconsCard {
   src: any
   alt: string
   hr: boolean
+}
+
+export interface priceList {
+  id: number
+  text: string
+  price: number
 }
 
