@@ -1,5 +1,5 @@
 <template>
-  <default-layout>
+   <default-layout>
     <div class="cards__wrapper container">
       <inhabitant-card :cards="cards"/>
     </div>
@@ -8,6 +8,23 @@
         <icon-card :icons="icons"/>
       </div> 
     </section>
+    <section class="gallery">
+      <div class="gallery__wrapper container">
+        <gallery/>
+      </div>    
+    </section>
+    <div class="price__list">
+      <h2>Цена</h2>
+      <p>*описание*</p>
+      <div>
+        <price-list/>
+      </div>
+    </div>
+      <section class="icons">
+        <div class="icons__wrapper container">
+          <icon-card :icons="icons"/>
+        </div> 
+      </section>
     <div class="price__list">
       <h2>Цена</h2>
       <p>*описание*</p>
@@ -32,8 +49,9 @@ import { defineComponent, ref } from 'vue'
 import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
 import priceList from '@/components/price-list.vue'
-import activeButton from '@/components/ui/active-button.vue';
-import defaultLayout from '@/components/layouts/default.vue';
+import activeButton from '@/components/ui/active-button.vue'
+import defaultLayout from '@/components/layouts/default.vue'
+import gallery from '@/components/gallery.vue'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -47,6 +65,7 @@ export default defineComponent( {
     iconCard,
     priceList,
     activeButton,
+    gallery
   },
 
   setup () {
@@ -148,6 +167,9 @@ export default defineComponent( {
     }
   }
 
+  .gallery{
+    margin-top: 20px;
+  }
   .price__list {
     display: flex;
     align-items: center;
