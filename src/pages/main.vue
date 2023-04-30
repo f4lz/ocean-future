@@ -19,18 +19,6 @@
       <div>
         <price-list/>
       </div>
-    </div>
-      <section class="icons">
-        <div class="icons__wrapper container">
-          <icon-card :icons="icons"/>
-        </div> 
-      </section>
-    <div class="price__list">
-      <h2>Цена</h2>
-      <p>*описание*</p>
-      <div>
-        <price-list/>
-      </div>
       <active-button>
         Купить
       </active-button>
