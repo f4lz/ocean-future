@@ -7,7 +7,9 @@
 
 <script lang="ts">
 
+  // @ts-ignore
   import logo from '@/components/ui/logo.vue';
+  
   import { defineComponent } from 'vue'
 
   export default defineComponent( { 

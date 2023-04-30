@@ -1,6 +1,6 @@
 <template>
   <div class="card" v-for="card in cards" :key="card.id">
-    <router-link class="card__link" :to="`/${card.id}`">
+    <router-link class="card__link" :to="`/animal/${card.id}`">
       <img  class="card__img" :src="card.src" :alt="card.name" />
     </router-link>
     <div class="card__title">
@@ -49,6 +49,7 @@ export default defineComponent( {
   &__link {
     display: block;
     position: relative;
+    cursor: pointer;
     transition: .7s;
 
     &:after {

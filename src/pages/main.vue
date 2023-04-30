@@ -1,22 +1,28 @@
 <template>
-  <div class="cards__wrapper container">
-    <inhabitant-card :cards="cards"/>
-  </div>
-  <section class="icons">
-    <div class="icons__wrapper container">
-      <icon-card :icons="icons"/>
-    </div> 
-  </section>
-  <div class="price__list">
-    <h2>Цена</h2>
-    <p>*описание*</p>
-    <div>
-      <price-list/>
+  <default-layout>
+    <div class="cards__wrapper container">
+      <inhabitant-card :cards="cards"/>
     </div>
-    <active-button>
-      Купить
-    </active-button>
-  </div>
+    <section class="icons">
+      <div class="icons__wrapper container">
+        <icon-card :icons="icons"/>
+      </div> 
+    </section>
+    <div class="price__list">
+      <h2>Цена</h2>
+      <p>*описание*</p>
+      <div>
+        <price-list/>
+      </div>
+      <active-button>
+        Купить
+      </active-button>
+    </div>
+    <section class="contacts">
+      <h2>+7 926 750 57 44 Пушкинская ул., 107/72, Ростов-на-Дону</h2>
+      <p>Мы открыты: 10:00 – 22:00, без выходных Почта: support@oceanfut.com</p>
+    </section>
+  </default-layout>
 </template>
 
 <script lang="ts">
@@ -27,6 +33,7 @@ import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
 import priceList from '@/components/price-list.vue'
 import activeButton from '@/components/ui/active-button.vue';
+import defaultLayout from '@/components/layouts/default.vue';
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -35,6 +42,7 @@ export default defineComponent( {
   name: 'main-page',
 
   components: {
+    defaultLayout,
     inhabitantCard,
     iconCard,
     priceList,
@@ -119,6 +127,8 @@ export default defineComponent( {
 
 <style lang="scss" scoped>
 
+  @use '@/assets/scss/variables' as v;
+
   .cards__wrapper {
     display: flex;
     justify-content: center;
@@ -144,6 +154,25 @@ export default defineComponent( {
     flex-direction: column;
     width: 620px;
     margin: 0 auto;
+  }
+
+  .contacts {
+    margin: 50px auto;
+    max-width: 626px;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    & p {
+      margin: 0 auto;
+      max-width: 236px;
+      font-size: v.$fz-monospaced;
+    }
+
+    & h2 {
+      padding: 0 20px;
+    }
   }
 
 </style>

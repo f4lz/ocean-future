@@ -1,0 +1,129 @@
+@use 'variables' as v;
+
+.header{
+    background-color: #171717;
+    padding: 15px 0;
+
+    &__wrapper {
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+      grid-template-columns: minmax(auto, 400px) minmax(auto, 380px) minmax(auto,420px);
+    }
+
+    &__nav {
+      display: flex;
+      justify-content: flex-start;
+      grid-column: 1/2;
+    }
+
+    &__logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 2/3;
+    }
+
+    &__button {
+      margin-left: 35%;
+      border-radius: 4px;
+      font-size: v.$fz-subheading;
+    }
+
+    .nav__item-list {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__burger {
+      display: none;
+      position: relative;
+      z-index: 3;
+
+      &-nav--active {
+        display: block !important;
+        position: relative !important;
+      }
+
+      &-lines {
+        opacity: 1;
+        transition: .7s;
+        position: absolute;
+        top: 25px;
+        left: 15px;
+        width: 15px;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+        transition: .6s;
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 8px;
+        width: 19px;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+       &::before {
+        position: absolute;
+        content: '';
+        top: -8px;
+        width: 22px;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+        transition: .6s;
+      }
+    }
+
+      &--active {
+        transform: rotate(-45deg);
+        width: 22px;
+        transition: .6s;
+
+       &::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #171717;
+        transform: scaleX(0);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+       }
+       &::before {
+        top: -1px;
+        transform: rotate(90deg);
+        transition: .6s;
+       }
+      }
+    }
+
+    
+   
+  }
+
+
+@media screen and (max-width: 1038px) {
+    .header {
+
+        &__wrapper &__nav {
+        display: none;
+        }
+
+        &__button {
+        display: none;
+        position: absolute;
+        
+        }
+
+        #burger-menu {
+        width: 50px;
+        height: 50px;
+        display: block;
+        }
+
+        
+    }
+}

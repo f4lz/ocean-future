@@ -1,16 +1,20 @@
 <template>
-  <div class="animal__wrapper animal container">
-    <div class="animal__info info">
-      <h2 class="info__title">
-      {{ selectedCard.name }}
-    </h2>
-    <p class="info__description">{{ selectedCard.description }}</p>
+  <default-layout>
+    <div class="animal__wrapper animal container" v-if="card">
+      <div class="animal__info info">
+        <h2 class="info__title">
+        {{ card.name }}
+      </h2>
+      <p class="info__description">{{ card.description }}</p>
+      </div>
+      <img :src="card.src" :alt="card.alt">
     </div>
-    <img :src="selectedCard.src" :alt="selectedCard.alt">
-  </div>
+  </default-layout>
 </template>
 
 <script lang="ts">
+
+import defaultLayout from '@/components/layouts/default.vue';
 
 import { defineComponent, ref, onMounted } from 'vue'
 
@@ -20,9 +24,14 @@ import type { inhabitantCardType } from '@/types/main'
 
 export default defineComponent( {
 
+  components: {
+    defaultLayout
+  },
+
   setup () {
 
     const route = useRoute()
+    const id = Number( route.params.id ) 
 
     const cards = ref<inhabitantCardType[]>( [
 
@@ -64,25 +73,14 @@ export default defineComponent( {
     }
     ] );
 
+    const card = ref<inhabitantCardType>()
 
-    const selectedCard = ref<inhabitantCardType | any>( {} )
-
-    function updateSelectedCard ( newValue: object ) {
-      selectedCard.value = newValue
-    }
-
-    onMounted ( () => { 
-      selectedCard.value = cards.value.map( ( card ) => { 
-        if ( card.id == Number( route.params.id ) ) {
-          return card
-        }
-        return null
-      } ).filter ( ( card ) => card !== null ) 
-      updateSelectedCard( selectedCard.value[ 0 ] )
+    onMounted ( () => {
+      card.value = cards.value.find( card => card.id === id )
     } )
 
     return {
-      selectedCard
+      card
     }
   }
   
@@ -91,6 +89,8 @@ export default defineComponent( {
 </script>
 
 <style lang="scss" scoped>
+
+  @use '@/assets/scss/variables' as v;
 
   .animal {
     display: flex;
@@ -104,18 +104,16 @@ export default defineComponent( {
       font-size: 24px;
 
       .info__title {
-        font-size: 32px;
+        font-size: v.$fz-title;
         vertical-align: top;
         margin-bottom: 10px;
       }
 
       .info__description {
-
+        font-size: v.$fz-subheading;
       }
     }
   }
 
-  img {
-  }
 
 </style>
