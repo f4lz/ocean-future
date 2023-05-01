@@ -8,11 +8,6 @@
         <icon-card :icons="icons" />
       </div>
     </section>
-    <section class="gallery">
-      <div class="gallery__wrapper">
-        <gallery />
-      </div>
-    </section>
     <div class="price__list">
       <h2>Цена</h2>
       <p>*описание*</p>
@@ -21,6 +16,11 @@
       </div>
       <active-button> Купить </active-button>
     </div>
+    <section class="gallery">
+      <div class="gallery__wrapper">
+        <gallery />
+      </div>
+    </section>
     <section class="contacts">
       <h2>+7 926 750 57 44 Пушкинская ул., 107/72, Ростов-на-Дону</h2>
       <p>Мы открыты: 10:00 – 22:00, без выходных Почта: support@oceanfut.com</p>

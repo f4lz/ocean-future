@@ -94,6 +94,7 @@ export default defineComponent( {
 
   .animal {
     display: flex;
+    justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 40px;

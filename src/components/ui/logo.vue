@@ -4,6 +4,7 @@
     alt="logo dolphin and sea" 
     :width="size"
     :height="size"
+    class="logo"
   >
 </template>
   
@@ -12,8 +13,16 @@
 defineProps( {
   size: {
     type: Number,
-      default: () => 100,
+    default: () => 100,
   },
 } )
 
 </script>
+
+<style scoped>
+
+.logo {
+  cursor: pointer;
+}
+
+</style>
