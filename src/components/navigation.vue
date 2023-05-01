@@ -2,7 +2,7 @@
   <nav class="header__nav nav">
     <ul :class="['nav__item-list',{ 'nav__item-list--active': activeClass }]">
         <li class="nav__items"><a href="" class="nav__links">Билеты</a></li>
-        <li class="nav__items"><a href="" class="nav__links">Фотографии</a></li>
+        <li class="nav__items"><router-link :to="{ name: 'gallery' }" class="nav__links">Фотографии</router-link></li>
         <li class="nav__items"><a href="" class="nav__links">Обитатели</a></li>
         <li class="nav__items"><a href="" class="nav__links">Шоу</a></li>
         <slot/>
