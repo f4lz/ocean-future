@@ -22,6 +22,16 @@
       Купить
     </active-button>
   </div>
+  <section class="banner">
+    <div class="banner__wrapper container">
+      <banner/>
+    </div>
+  </section>
+  <section class="about">
+    <div class="about__wapper container">
+      <aboutCompany/>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -33,6 +43,8 @@ import iconCard from '@/components/icon-card.vue'
 import priceList from '@/components/price-list.vue'
 import activeButton from '@/components/ui/active-button.vue'
 import gallery from '@/components/gallery.vue'
+import banner from '@/components/banner.vue'
+import aboutCompany from '@/components/about-company.vue'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -45,7 +57,9 @@ export default defineComponent( {
     iconCard,
     priceList,
     activeButton,
-    gallery
+    gallery,
+    banner,
+    aboutCompany
   },
 
   setup () {
@@ -154,6 +168,25 @@ export default defineComponent( {
     flex-direction: column;
     width: 620px;
     margin: 0 auto;
+  }
+
+  .banner {
+    margin-top: 60px;
+    background-image: url('@/assets/banner.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 713px;
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: inherit;
+    }
+  }
+
+  .about {
+    margin-top: 60px;
   }
 
 </style>

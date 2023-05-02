@@ -4,7 +4,7 @@
       <nav class="header__nav nav">
         <ul class="nav__item-list">
           <li class="nav__items"><a href="" class="nav__links">Билеты</a></li>
-          <li class="nav__items"><a href="" class="nav__links">Фотографии</a></li>
+          <li class="nav__items"><a href="/album" class="nav__links">Фотографии</a></li>
           <li class="nav__items"><a href="" class="nav__links">Обитатели</a></li>
           <li class="nav__items"><a href="" class="nav__links">Шоу</a></li>
         </ul>

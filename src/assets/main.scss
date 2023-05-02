@@ -96,6 +96,11 @@ select {
       display: block;
     }
   }
+
+  .banner {
+    min-height: 460px !important;
+  }
+  
 }
 
 //Icons
@@ -120,6 +125,16 @@ select {
     &__description { 
       padding:30px 0;
     }
+  }
+
+  .about {
+
+    &__box {
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+
   }
 }
 

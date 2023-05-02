@@ -1,7 +1,7 @@
 <template>
     <div class="gallery__box">
         <img class="gallery__img gallery__img-1" src="@/assets/hands.jpg" alt="Руки">
-        <img class="gallery__img gallery__img-2" src="@/assets/albumOcean.jpg" alt="Океан">
+        <img class="gallery__img gallery__img-2" src="@/assets/album-ocean.jpg" alt="Океан">
         <img class="gallery__img gallery__img-3" src="@/assets/woman.jpg" alt="Девочка">
         <img class="gallery__img gallery__img-4" src="@/assets/scut.jpg" alt="Скат">
     </div>

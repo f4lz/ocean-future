@@ -22,6 +22,7 @@
 
 <style lang="scss" scoped>
   .footer__inner{
+    margin-top: 60px;
     display: flex; 
     justify-content: center;
     gap: 60px;
