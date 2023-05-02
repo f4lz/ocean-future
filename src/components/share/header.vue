@@ -1,47 +1,42 @@
 <template>
   <header class="header">
     <div class="container header__wrapper">
-      <navigation class="header__nav"/>
+      <navigation class="header__nav" />
       <div id="burger-menu" class="header__burger" ref="burger" @click="changeBurger">
-        <span :class="['header__burger-lines',{ 'header__burger--active': isActive }]"/>
-        <navigation :class="['header__burger-nav',
-          { 'header__burger-nav--active': isActive }]"
+        <span :class="['header__burger-lines', { 'header__burger--active': isActive }]" />
+        <navigation
+          :class="['header__burger-nav', { 'header__burger-nav--active': isActive }]"
           :activeClass="isActive"
-          >
-          <active-button/>
+        >
+          <active-button />
         </navigation>
       </div>
-      <logo class="header__logo" @click="$router.push({name:'main'})"/>
-      <active-button class="header__button"/>
+      <logo class="header__logo" @click="$router.push({ name: 'main' })" />
+      <active-button class="header__button" />
     </div>
-  <!-- <div ref="shadow unscroll" :class="{shadow: isActive}"/> -->
+    <!-- <div ref="shadow unscroll" :class="{shadow: isActive}"/> -->
   </header>
 </template>
 
 <script lang="ts">
-
-// @ts-ignore
-import logo from '@/components/ui/logo.vue';
-// @ts-ignore
-import navigation from '@/components/navigation.vue';
-import activeButton from '@/components/ui/active-button.vue';
+import logo from '@/components/ui/logo.vue'
+import navigation from '@/components/navigation.vue'
+import activeButton from '@/components/ui/active-button.vue'
 
 import { defineComponent, ref } from 'vue'
 
-export default defineComponent ( {
+export default defineComponent( {
   components: {
     navigation,
     activeButton,
     logo
   },
-  
-  setup () {
 
-    const isActive = ref<Boolean>( false );
+  setup () {
+    const isActive = ref<Boolean>( false )
 
     function changeBurger () {
-     isActive.value = isActive.value ? false : true;
-     unscroll()
+      isActive.value = isActive.value ? false : true
     }
 
     // const shadow = aref<HTMLDivElement>()
@@ -53,15 +48,12 @@ export default defineComponent ( {
     //     body?.classList.add( 'unscroll' )
 
     //   }
-    // } 
-    
-    
+    // }
 
     return {
       changeBurger,
       isActive
     }
-
   }
 } )
 </script>

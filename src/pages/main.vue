@@ -16,7 +16,7 @@
       </div>
       <active-button> Купить </active-button>
     </div>
-    <section class="gallery">
+    <section class="gallery container">
       <div class="gallery__wrapper">
         <gallery />
       </div>
