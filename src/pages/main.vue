@@ -10,7 +10,7 @@
 				<icon-card :icons="icons" />
 			</div>
 		</section>
-    <div class="price__list">
+		<div class="price__list">
 			<h2>Цена</h2>
 			<p>*описание*</p>
 			<div>
@@ -18,21 +18,21 @@
 			</div>
 			<active-button> Купить </active-button>
 		</div>
-    <section class="gallery container">
+		<section class="gallery container">
 			<div class="gallery__wrapper">
 				<gallery />
 			</div>
 		</section>
-    <section class="about">
+		<section class="about">
 			<div class="about__wapper container">
 				<aboutCompany />
 			</div>
 		</section>
-    <section class="cards">
-      <div class="cards__wrapper container">
-			  <inhabitant-card :cards="cards" />
-		  </div>
-    </section>
+		<section class="cards">
+			<div class="cards__wrapper container">
+				<inhabitant-card :cards="cards" />
+			</div>
+		</section>
 		<section class="contacts">
 			<h2>+7 926 750 57 44 Пушкинская ул., 107/72, Ростов-на-Дону</h2>
 			<p>Мы открыты: 10:00 – 22:00, без выходных Почта: support@oceanfut.com</p>
@@ -156,10 +156,10 @@ export default defineComponent( {
 	flex-wrap: wrap;
 }
 
-.cards{
-  background-color: #171717;
-  padding: 40px 0;
-  margin-top: 30px;
+.cards {
+	background-color: #171717;
+	padding: 40px 0;
+	margin-top: 30px;
 }
 
 .icons {
@@ -210,6 +210,17 @@ export default defineComponent( {
 	background-size: cover;
 	min-height: 713px;
 	background-attachment: fixed;
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: #171717;
+		filter: opacity(35%);
+		top: 0;
+		left: 0;
+	}
 	&__wrapper {
 		display: flex;
 		justify-content: center;

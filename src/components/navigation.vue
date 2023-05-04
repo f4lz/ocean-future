@@ -1,24 +1,46 @@
 <template>
   <nav class="header__nav nav">
     <ul :class="['nav__item-list', { 'nav__item-list--active': activeClass }]">
-      <li class="nav__items"><a href="" class="nav__links">Билеты</a></li>
-      <li class="nav__items">
-        <router-link :to="{ name: 'gallery' }" class="nav__links">Фотографии</router-link>
-      </li>
-      <li class="nav__items"><a href="" class="nav__links">Обитатели</a></li>
-      <li class="nav__items"><a href="" class="nav__links">Шоу</a></li>
+      <router-link v-for="route in routes" :key="route.name" :to="{ name: route.link }" class="nav__items">
+        {{ route.name }}
+      </router-link>
       <slot />
     </ul>
   </nav>
 </template>
 
 <script lang="ts" setup>
+
+import { ref } from 'vue'
+
+import type RouteApi from '@/types/main'
+
 defineProps( {
   activeClass: {
     type: Boolean,
     default: () => false
   }
 } )
+
+const routes = ref<RouteApi>( [
+  {
+    link: 'tickets',
+    name: 'Билеты'
+  },
+  {
+    link: 'gallery',
+    name: 'Фотографии'
+  },
+  {
+    link: 'tickets',
+    name: 'Обитатели'
+  },
+  {
+    link: 'tickets',
+    name: 'Шоу'
+  },
+] )
+
 </script>
 
 <style lang="scss">
@@ -44,5 +66,9 @@ defineProps( {
   display: flex;
   flex-direction: column;
   z-index: 2;
+}
+
+.router-link-active {
+  text-decoration: underline;
 }
 </style>

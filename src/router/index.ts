@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from '@/pages/main.vue'
 import AnimalPage from '@/pages/animal.vue'
-import PaymentPage from '@/pages/payment.vue'
+import TicketsPage from '@/pages/tickets.vue'
 import GalleryPage from '@/pages/gallery-page.vue'
 import PageNotFound from '@/pages/page-not-found.vue'
 
@@ -20,9 +20,9 @@ const router = createRouter( {
       props: true
     },
     {
-      path: '/payment',
-      name: 'payment',
-      component: PaymentPage
+      path: '/tickets',
+      name: 'tickets',
+      component: TicketsPage
     },
     {
       path: '/gallery',

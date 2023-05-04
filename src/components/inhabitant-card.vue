@@ -39,6 +39,7 @@ export default defineComponent( {
     left: 5%;
     color: white;
     opacity: 0;
+    transition: 0.7s;
   }
 
   &__link {
@@ -67,6 +68,7 @@ export default defineComponent( {
     }
     &:hover + .card__title {
       opacity: 1;
+      transition: 0.7s;
     }
   }
 }

@@ -19,3 +19,8 @@ export interface priceList {
   price: number
 }
 
+export interface RouteApi {
+  link: string
+  name: string
+}
+

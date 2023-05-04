@@ -1,6 +1,6 @@
 <template>
   <default-layout>
-    <div class="container">
+    <div class="container gallery">
       <img
         class="gallery-main-img"
         src="@/assets/okeanarium-akula-dev.jpg"
@@ -28,7 +28,5 @@ export default defineComponent( {
 </script>
 
 <style>
-.gallery-main-img {
-  max-width: 1200px;
-}
+
 </style>

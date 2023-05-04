@@ -1,6 +1,6 @@
 <template>
   <footer class="footer__inner">
-    <logo :size="300" />
+    <logo :size="200" />
     <p class="footer__text">© All Rights Reserved. Acme Inc.211-323@polytech.com</p>
   </footer>
 </template>
@@ -18,6 +18,8 @@ export default defineComponent( {
 </script>
 
 <style lang="scss" scoped>
+@use '@/assets/scss/variables' as v;
+
 .footer__inner {
   display: flex;
   justify-content: center;
@@ -29,5 +31,6 @@ export default defineComponent( {
   max-width: 250px;
   padding: 0 24px;
   text-align: center;
+  font-size: v.$fz-monospaced;
 }
 </style>
