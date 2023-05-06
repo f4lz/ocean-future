@@ -3,146 +3,133 @@
 @use 'variables';
 @use 'nullstyle';
 
- .unscroll {
-  overflow: hidden;
- }
+.unscroll {
+	overflow: hidden;
+}
 
 .shadow {
-  height: 1000vh;
-  width: 1000vh;
-  top: 0;
-  opacity: 0.5;
-  z-index: 1;
-  position: absolute;
-  background-color: #121212;
+	height: 1000vh;
+	width: 1000vh;
+	top: 0;
+	opacity: 0.5;
+	z-index: 1;
+	position: absolute;
+	background-color: #121212;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat";
-  font-weight: 500;
+	margin: 0;
+	padding: 0;
+	font-family: 'Montserrat';
+	font-weight: 500;
 }
 
 html,
 body {
-  height: 100%;
-  background-color: #242424;
-  color: white;
+	height: 100%;
+	background-color: #242424;
+	color: white;
 }
 
 #app {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .footer {
-  padding: 68px 0 35px;
-  flex: 0 0 auto;
-  background-color: #121212;
+	padding: 68px 0 35px;
+	flex: 0 0 auto;
+	background-color: #121212;
 }
 
 .main {
-  flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 
 // Gallery
 
-@media screen and ( max-width: 768px ) {
+@media screen and (max-width: 768px) {
+	//Gallery
 
-  //Gallery 
+	.gallery {
+		&__wrapper {
+			.gallery__box {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				align-items: center;
+			}
+		}
 
-  .gallery {
+		&__img {
+			max-width: 500px;
+			min-height: 300px;
+			max-height: 300px;
+			display: block;
+		}
+	}
 
-    &__wrapper {
+	//About
 
-      .gallery__box {
-        display: flex ;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-      }
+	.about {
+		&__box {
+			flex-direction: column;
+			align-items: center;
+		}
 
-    }
+		&__card {
+			.about__img {
+				min-width: 100px;
+				min-height: 100px;
+			}
+		}
+	}
 
-    &__img {
-      max-width: 500px;
-      min-height: 300px;
-      max-height: 300px;
-      display: block;
-    }
-  }
+	//Banner
 
-  //About
-
-  .about {
-    &__box {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    &__card {
-      .about__img {
-        min-width: 100px;
-        min-height: 100px;
-      }
-    }
-
-  }
-
-  //Banner
-
-  #app{
-    .banner {
-      min-height: 430px;
-    }
-  }
-
+	#app {
+		.banner {
+			min-height: 430px;
+		}
+	}
 }
 
 //Icons
 
-@media screen and ( max-width: 1200px ) {
-  .icons { 
+@media screen and (max-width: 1200px) {
+	.icons {
+		&__box {
+			border: none;
+		}
 
-    &__box {
-      border: none;
-    }
+		&__wrapper {
+			flex-direction: column;
+			align-content: center;
+		}
 
-    &__wrapper {
-      flex-direction: column;
-      align-content: center;
-    }
-    
-    .border { 
-      border-right: none;
-      border-bottom: 2px black solid;
-    }
+		.border {
+			border-right: none;
+			border-bottom: 2px black solid;
+		}
 
-    &__description { 
-      padding:30px 0;
-    }
-  }
+		&__description {
+			padding: 30px 0;
+		}
+	}
 }
 
-@media screen and ( max-width: 600px ) {
-  .icons {
-
-    &__box {
-      
-      .icons__description {
-        min-width: 30px;
-      }
-    }
-
-  }
+@media screen and (max-width: 600px) {
+	.icons {
+		&__box {
+			.icons__description {
+				min-width: 30px;
+			}
+		}
+	}
 }
-
-
-
