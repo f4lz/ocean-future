@@ -1,6 +1,8 @@
 <template>
   <header-side class="header-side" />
-  <slot />
+  <div class="main">
+    <slot />
+  </div>
   <footer-side class="footer" />
 </template>
 
