@@ -62,11 +62,12 @@ defineProps( {
         animation: border-radius 10s infinite linear;
         animation-delay: 0s;
         max-width: 500px;
+        max-height: 500px;
 	}
 
     @keyframes border-radius {
         0% {
-            border-bottom-left-radius: 40%;
+            border-bottom-left-radius: 50%;
             border-top-left-radius: 60%;
             border-bottom-right-radius: 60%;
             border-top-right-radius: 40%;
@@ -79,7 +80,7 @@ defineProps( {
         }
         26% {
             border-bottom-left-radius: 60%;
-            border-top-left-radius: 40%;
+            border-top-left-radius: 50%;
             border-bottom-right-radius: 40%;
             border-top-right-radius: 60%;
         }
@@ -93,7 +94,7 @@ defineProps( {
             border-bottom-left-radius: 40%;
             border-top-left-radius: 60%;
             border-bottom-right-radius: 60%;
-            border-top-right-radius: 40%;
+            border-top-right-radius: 50%;
         }
         64% {
             border-bottom-left-radius: 70%;
@@ -104,7 +105,7 @@ defineProps( {
         77% {
             border-bottom-left-radius: 60%;
             border-top-left-radius: 40%;
-            border-bottom-right-radius: 40%;
+            border-bottom-right-radius: 50%;
             border-top-right-radius: 60%;
         }
         88% {
@@ -114,7 +115,7 @@ defineProps( {
             border-top-right-radius: 70%;
         }
         100% {
-            border-bottom-left-radius: 40%;
+            border-bottom-left-radius: 50%;
             border-top-left-radius: 60%;
             border-bottom-right-radius: 60%;
             border-top-right-radius: 40%;
