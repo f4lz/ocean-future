@@ -7,7 +7,7 @@
 			</p>
 		</div>
 		<div class="about__card">
-			<img class="about__img" src="@/assets/arque.jpg" alt="Арка" />
+			<img class="about__img" :src="src" :alt="alt" />
 		</div>
 	</div>
 </template>
@@ -25,6 +25,14 @@ defineProps( {
     description: {
         type: String,
         default: () => 'Крупнейший в Европе аквариум, удаленный от морского побережья. В 80 аквариумах обитает более 12 000 морских и пресноводных обитателей.'
+    },
+    src: {
+        type: String,
+        default: () => require( '@/assets/arque.jpg' ) 
+    },
+    alt: {
+        type: String,
+        default: () => 'Арка'
     }
 } )
     

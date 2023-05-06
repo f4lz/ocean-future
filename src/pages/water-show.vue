@@ -3,12 +3,19 @@
 
         <section class="banner-show">
             <div class="banner-show__wrapper container">
-                <banner></banner>
+                <banner headding="НЕВЕРОЯТНОЕ ВОДНОЕ ШОУ" description="Не пропустите это грандиозное событие"></banner>
             </div>
         </section>
         <section class="about">
             <div class="about__wrapper container">
-                <about title="dadwaad"></about>
+                <about 
+				title="Восхитительные всплески эмоций"
+				description="Водное шоу — отличная возможность разнообразить досуг, сменить обстановку и наполнить жизнь новыми впечатлениями! Репертуар Оceanfuture регулярно обновляется и уже насчитывает 6 уникальных шоу. 
+				Здесь на одной водной сцене встречаются сотни артистов всевозможных жанров: актёры, певцы, акробаты, фигуристы"
+				src="@/assets/dolphin.png"
+				alt="Дельфин"
+				>
+				</about>
             </div>
         </section>
 

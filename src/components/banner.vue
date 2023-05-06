@@ -1,9 +1,29 @@
 <template>
     <div class="banner__box">
-        <h1 class="banner__headding">Океанариум</h1>
-        <h2 class="banner__teg">#окунись в океан</h2>
+        <h1 class="banner__headding">{{ headding }}</h1>
+        <h2 class="banner__teg">{{ description }}</h2>
     </div>
 </template>
+
+<script lang="ts" setup>
+
+import { defineProps } from 'vue'
+
+
+defineProps( {
+    headding: {
+        type: String,
+        default: () => 'Океанариум'
+    },
+    description: {
+        type: String,
+        default: () => '#окунись в океан'
+    }
+} )
+    
+
+
+</script>
 
 <style lang="scss" scoped>
 
