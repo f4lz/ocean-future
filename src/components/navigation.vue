@@ -36,7 +36,7 @@ const routes = ref<RouteApi>( [
     name: 'Обитатели'
   },
   {
-    link: 'tickets',
+    link: 'show',
     name: 'Шоу'
   },
 ] )

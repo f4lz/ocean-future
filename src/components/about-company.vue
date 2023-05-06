@@ -1,10 +1,9 @@
 <template>
 	<div class="about__box">
 		<div class="about__text">
-			<p class="about__headding">О компании</p>
+			<p class="about__headding">{{ title }}</p>
 			<p class="about__description">
-				Крупнейший в Европе аквариум, удаленный от морского побережья. В 80 аквариумах обитает более
-				12 000 морских и пресноводных обитателей.
+				{{ description }}
 			</p>
 		</div>
 		<div class="about__card">
@@ -12,6 +11,26 @@
 		</div>
 	</div>
 </template>
+
+<script lang="ts" setup>
+
+import { defineProps } from 'vue'
+
+
+defineProps( {
+    title: {
+        type: String,
+        default: () => 'О компании'
+    },
+    description: {
+        type: String,
+        default: () => 'Крупнейший в Европе аквариум, удаленный от морского побережья. В 80 аквариумах обитает более 12 000 морских и пресноводных обитателей.'
+    }
+} )
+    
+
+
+</script>
 
 <style lang="scss" scoped>
 

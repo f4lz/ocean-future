@@ -4,6 +4,7 @@ import AnimalPage from '@/pages/animal.vue'
 import TicketsPage from '@/pages/tickets.vue'
 import GalleryPage from '@/pages/gallery-page.vue'
 import PageNotFound from '@/pages/page-not-found.vue'
+import WaterShowPage from '@/pages/water-show.vue'
 
 const router = createRouter( {
   history: createWebHistory( import.meta.env.BASE_URL ),
@@ -28,6 +29,11 @@ const router = createRouter( {
       path: '/gallery',
       name: 'gallery',
       component: GalleryPage
+    },
+    {
+      path: '/show',
+      name:'show',
+      component: WaterShowPage
     },
     {
       path: '/:catchAll(.*)',
