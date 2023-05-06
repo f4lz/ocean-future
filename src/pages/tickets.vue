@@ -9,7 +9,7 @@
 
 import defaultLayout from '@/components/layouts/default.vue';
 import priceList from '@/components/price-list.vue';
-import modalPayment from '@/components/payment.vue';
+import modalPayment from '@/components/modals/modal-payment.vue';
 
 import { defineComponent } from 'vue';
 
