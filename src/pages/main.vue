@@ -11,8 +11,10 @@
 			</div>
 		</section>
 		<div class="price__list">
-			<h2>Цена</h2>
-			<p>*описание*</p>
+			<h2>Цены</h2>
+			<p class="price__description">
+				Не пропустите невероятное приключение в нашем Океанариуме и закажите билеты прямо сейчас!
+			</p>
 			<div>
 				<price-list />
 			</div>
@@ -176,12 +178,21 @@ export default defineComponent( {
 .gallery {
 	margin-top: 20px;
 }
+
 .price__list {
+	text-align: center;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 620px;
+	width: 43%;
 	margin: 0 auto;
+	gap: 40px;
+	padding: 60px;
+}
+
+.price__description {
+	text-align: center;
+	width: 300px;
 }
 
 .contacts {
