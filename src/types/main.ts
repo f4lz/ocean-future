@@ -24,3 +24,10 @@ export interface RouteApi {
   name: string
 }
 
+export interface About {
+  title: string
+  description: string
+  src: string
+  alt: string
+  className: string
+}

@@ -1,24 +1,25 @@
 <template>
     <default-layout>
-
         <section class="banner-show">
             <div class="banner-show__wrapper container">
-                <banner headding="НЕВЕРОЯТНОЕ ВОДНОЕ ШОУ" description="Не пропустите это грандиозное событие"></banner>
+                <banner
+								  headding="НЕВЕРОЯТНОЕ ВОДНОЕ ШОУ"
+								  description="Не пропустите это грандиозное событие"
+									/>
             </div>
         </section>
         <section class="about">
             <div class="about__wrapper container">
-                <about 
-				title="Восхитительные всплески эмоций"
-				description="Водное шоу — отличная возможность разнообразить досуг, сменить обстановку и наполнить жизнь новыми впечатлениями! Репертуар Оceanfuture регулярно обновляется и уже насчитывает 6 уникальных шоу. 
-				Здесь на одной водной сцене встречаются сотни артистов всевозможных жанров: актёры, певцы, акробаты, фигуристы"
-				src="@/assets/dolphin.png"
-				alt="Дельфин"
-				>
-				</about>
+                <about
+									title="Восхитительные всплески эмоций"
+									description="Водное шоу — отличная возможность разнообразить досуг, сменить обстановку и наполнить жизнь новыми впечатлениями! Репертуар Оceanfuture регулярно обновляется и уже насчитывает 6 уникальных шоу. 
+									Здесь на одной водной сцене встречаются сотни артистов всевозможных жанров: актёры, певцы, акробаты, фигуристы"
+									:src="'./src/assets/show.jpg'"
+									alt="Дельфин"
+									className="show__img"
+									/>
             </div>
         </section>
-
     </default-layout>
 </template>
 
@@ -35,7 +36,8 @@ export default defineComponent( {
         banner,
         about,
         defaultLayout
-    }
+    },
+
 } )
 
 </script>
@@ -66,6 +68,10 @@ export default defineComponent( {
 		align-items: center;
 		min-height: inherit;
 	}
+}
+
+.about__wrapper {
+	margin-bottom: 30px;
 }
 
 </style>

@@ -7,7 +7,7 @@
 			</p>
 		</div>
 		<div class="about__card">
-			<img class="about__img" :src="src" :alt="alt" />
+			<img :class="className" :src="src" :alt="alt" />
 		</div>
 	</div>
 </template>
@@ -28,15 +28,17 @@ defineProps( {
     },
     src: {
         type: String,
-        default: () => require( '@/assets/arque.jpg' ) 
+        default: () => './src/assets/arque.jpg'
     },
     alt: {
         type: String,
         default: () => 'Арка'
+    },
+    className: {
+        type: String,
+        default: () => 'about__img'
     }
 } )
-    
-
 
 </script>
 
@@ -130,4 +132,21 @@ defineProps( {
         }
     }
 }
+
+.show__img {
+    animation: around 10s infinite linear;
+}
+
+@keyframes around {
+    0% {
+        border-radius: 50%;
+    }
+    50% {
+        border-radius: 40%;
+    }
+    100% {
+        border-radius: 50%;
+    }
+}
+
 </style>
