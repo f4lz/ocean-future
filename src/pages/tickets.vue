@@ -16,6 +16,7 @@ import defaultLayout from '@/components/layouts/default.vue';
 import priceList from '@/components/price-list.vue';
 import modalPayment from '@/components/modals/modal-payment.vue';
 import activeButton from '@/components/ui/active-button.vue';
+import modalApplyPayment from '@/components/modals/modal-apply-payment.vue';
 
 import { reactive } from 'vue';
 import { defineComponent } from 'vue';
@@ -24,7 +25,8 @@ defineComponent( {
   defaultLayout,
   priceList,
   modalPayment,
-  activeButton
+  activeButton,
+  modalApplyPayment
 } )
 
 window.addEventListener( 'keydown', ( event ) => {
@@ -44,6 +46,7 @@ const modal = reactive( {
  const showModalPayment = () => {
     modal.display = !modal.display
  }
+
 
 
 </script>

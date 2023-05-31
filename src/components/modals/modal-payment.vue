@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <active-button class="payment__button">Купить</active-button>
+    <active-button class="payment__button" @click="showModalApplyPayment">Купить</active-button>
   </div>
 </template>
 
@@ -32,6 +32,7 @@ import { mdiClose } from '@mdi/js'
 import { priceListStore } from '@/stores/prices'
 import { watchEffect, ref, defineComponent } from 'vue'
 import activeButton from '@/components/ui/active-button.vue';
+import { defineProps } from 'vue';
 
 defineComponent( {
   activeButton
@@ -54,6 +55,13 @@ watchEffect (  () => {
 const close = () => {
   emit( 'close' )
 }
+
+defineProps( {
+  countTickets: {
+    type: Number,
+    default: () => 0
+  }
+} )
 
 </script>
 

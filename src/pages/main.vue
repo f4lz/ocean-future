@@ -18,7 +18,9 @@
 			<div>
 				<price-list />
 			</div>
-			<active-button> Купить </active-button>
+			<router-link to="/tickets">
+				<active-button >Купить</active-button>
+			</router-link>
 		</div>
 		<section class="gallery container">
 			<div class="gallery__wrapper">
