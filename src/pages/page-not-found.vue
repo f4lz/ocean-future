@@ -1,7 +1,9 @@
 <template>
   <error-layout>
-    <h2>Увы, такой страницы не существует</h2>
-    <router-link class="error-link" :to="{ name: 'main' }">Вернуться на главную</router-link>
+    <div class="error__wrapper">
+      <h2 class="errpr__text">Увы, такой страницы не существует</h2>
+      <router-link class="error-link" :to="{ name: 'main' }">Вернуться на главную</router-link>
+    </div>
   </error-layout>
 </template>
 
@@ -23,5 +25,12 @@ export default defineComponent( {
 .error-link {
   cursor: pointer;
   color: rgb(74, 74, 185);
+}
+
+.error__wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 350px;
 }
 </style>
