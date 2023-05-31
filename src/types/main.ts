@@ -15,7 +15,7 @@ export interface iconsCard {
 
 export interface priceList {
   id: number
-  text: string
+  type: string
   price: number
 }
 

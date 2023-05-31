@@ -12,6 +12,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^7.2.96",
     "@vue/composition-api": "^1.7.1",
     "pinia": "^2.0.32",
     "vite-plugin-require": "^1.1.10",

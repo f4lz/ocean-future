@@ -27,6 +27,12 @@ defineComponent( {
   activeButton
 } )
 
+window.addEventListener( 'keydown', ( event ) => {
+  if ( event.keyCode == 27 ) {
+    onclose()
+  }
+} )
+
 const modal = reactive( {
   display: false
  } )
@@ -49,8 +55,10 @@ const modal = reactive( {
 }
 
 .payment {
+  height: 70vh;
   display: flex;
-  justify-content: center;
+  margin-top: 60px;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }

@@ -1,26 +1,17 @@
 <template>
-	<div class="prices__box container" v-for="price in prices" :key="price.id">
-		<p class="ticket__type">{{ price.text }}</p>
-		<span class="ticket__price">{{ price.price }}</span>
+	<div class="prices__box container" v-for="price in priceList.prices" :key="price.id">
+		<p class="ticket__type">{{ price.type }}</p>
+		<span class="ticket__price">{{ price.price }} ₽</span>
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 
-import type { PropType } from 'vue'
-import type { priceList } from '@/types/main'
+import { priceListStore } from '@/stores/prices'
 
-export default defineComponent( {
-	props: {
-		prices: {
-			type: Array as PropType<priceList[]>,
-			default: () => []
-		}
-	},
+const priceList = priceListStore()
 
-	setup () {}
-} )
+
 </script>
 
 <style lang="scss" scoped>

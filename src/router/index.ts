@@ -36,6 +36,11 @@ const router = createRouter( {
       component: WaterShowPage
     },
     {
+      path: '/animal',
+      name:'animal',
+      component: WaterShowPage
+    },
+    {
       path: '/:catchAll(.*)',
       component: PageNotFound
     }

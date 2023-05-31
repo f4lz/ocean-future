@@ -32,7 +32,7 @@ const routes = ref<RouteApi>( [
     name: 'Фотографии'
   },
   {
-    link: 'tickets',
+    link: 'animal',
     name: 'Обитатели'
   },
   {
@@ -69,6 +69,6 @@ const routes = ref<RouteApi>( [
 }
 
 .router-link-active {
-  text-decoration: underline;
+  color: #FFC700;
 }
 </style>
