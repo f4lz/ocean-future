@@ -31,3 +31,8 @@ export interface About {
   alt: string
   className: string
 }
+
+export interface Modal {
+  display: boolean
+  props: object
+}

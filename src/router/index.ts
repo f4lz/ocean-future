@@ -36,8 +36,8 @@ const router = createRouter( {
       component: WaterShowPage
     },
     {
-      path: '/animal',
-      name:'animal',
+      path: '/animals',
+      name:'animals',
       component: WaterShowPage
     },
     {

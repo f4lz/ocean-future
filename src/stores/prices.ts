@@ -30,7 +30,11 @@ export const priceListStore = defineStore( 'prices', () => {
     },
   ] )
 
+  const changeCountOfTickets = ( countOfTickets ) => {
+    console.log( 'info for Sasha', countOfTickets.value )
+  }
+
   return {
-    prices,
+    prices, changeCountOfTickets
    }
 } )

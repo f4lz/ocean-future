@@ -5,7 +5,8 @@
       <active-button @click="showModalPayment">
         Купить
       </active-button>
-      <modal-payment class="modal-payment" v-if="modal.display" @close="onclose"/>
+      <modal-payment class="modal-payment" v-if="modalPay.display" @close="onclose" @showModalApplyPayment="showModalApplyPayment" :modal="modalPay"/>
+      <modal-apply-payment class="modal-payment" v-if="modalApplyPay.display" @close="onclose" :modal="modalApplyPay"/>
     </div>
   </default-layout>
 </template>
@@ -31,22 +32,39 @@ defineComponent( {
 
 window.addEventListener( 'keydown', ( event ) => {
   if ( event.keyCode == 27 ) {
-    onclose()
+    if ( modalPay.display ) {
+      onclose( modalPay )
+    }
+    if ( modalApplyPay.display ) {
+      onclose( modalApplyPay )
+      modalPay.display = true
+    }
   }
 } )
 
-const modal = reactive( {
+const modalPay = reactive( {
   display: false
  } )
 
- const onclose = () => {
+const modalApplyPay = reactive( {
+  display: false
+ } )
+
+
+const showModalApplyPayment = ( showModalApplyPaymentDisplay ) => {
+  if ( showModalApplyPaymentDisplay ) {
+    onclose( modalPay )
+    modalApplyPay.display = true
+  }
+}
+
+ const onclose = ( modal ) => {
   modal.display = false
  }
 
  const showModalPayment = () => {
-    modal.display = !modal.display
+  modalPay.display = modalPay.display = true
  }
-
 
 
 </script>

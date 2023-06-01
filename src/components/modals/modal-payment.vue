@@ -1,50 +1,69 @@
 <template>
   <div class="payment-wrapper">
     <div class="payment__close">
-      <svg-icon class="close" @click="close" type="mdi" :path="path"></svg-icon>
+      <svg-icon class="close" @click="close" type="mdi" :path="mdiClose"></svg-icon>
+      <svg-icon type="mdi" @click="plusCountOfTickets" :path="mdiPlus"></svg-icon>
     </div>
     <div class="payment__content">
       <div class="content__inner">
         <div class="inner__info">
           <p>Тип билета</p>
-          <select class="connent__inner-select">
+          <select class="connent__inner-select" v-model="type">
             <option v-for="price in priceList.prices" :key="price.id"  :value="price.type">{{ price.type }}</option>
           </select>
         </div>
         <div class="inner__info">
           <p>Кол-во билетов</p>
-          <input class="inner__info-input" v-model="countOfTickets" type="number" min="1" max="100">
+          <input class="inner__info-input" v-model="countOfTickets" type="number" min="1" max="100" @change="">
         </div>
         <div class="inner__info">
           <p>Дата посещения</p>
-          <input class="inner__info-input" type="date">
+          <input class="inner__info-input" type="date" v-model="date" @change="info">
         </div>
       </div>
+      <active-button class="payment__button" @click="showModalApplyPayment">Купить</active-button>
     </div>
-    <active-button class="payment__button" @click="showModalApplyPayment">Купить</active-button>
   </div>
 </template>
 
 <script lang="ts" setup>
 
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiClose } from '@mdi/js'
+import { mdiClose, mdiPlus } from '@mdi/js'
+
 import { priceListStore } from '@/stores/prices'
-import { watchEffect, ref, defineComponent } from 'vue'
+
 import activeButton from '@/components/ui/active-button.vue';
-import { defineProps } from 'vue';
+
+import { watchEffect, ref, defineComponent, defineProps } from 'vue'
+
+import type { PropType } from 'vue'
+import type { Modal } from '@/types/main'
 
 defineComponent( {
   activeButton
 } )
 
-const emit = defineEmits( [ 'close' ] )
+const props = defineProps( {
+  modal: {
+    type: Object as PropType<Modal>,
+    default: () => {},
+  }
+} )
 
-const priceList = priceListStore()
-
-const path = mdiClose
+// Variables
 
 const countOfTickets = ref<number>( 1 )
+const date = ref<string>()
+const type = ref<string>()
+
+//Store
+
+const priceList = priceListStore()
+priceList.changeCountOfTickets( countOfTickets )
+
+
+// Watchers
 
 watchEffect (  () => {
   if ( countOfTickets.value < 0 ) {
@@ -52,16 +71,34 @@ watchEffect (  () => {
   }
 } )
 
+// Emits
+
+// TODO: Сделать короче, 1 + и - чтобы работали, иконки с айконс, ииии посмотреть в интернете как реализован механизм измененния переменной внутри стора pinia курс кину в тг или сюда
+// https://www.youtube.com/watch?v=ok9PE-XwXro 
+// https://www.youtube.com/watch?v=bAF5mSnJOzA&list=PL2hgv2vHkQ7DE77DNxPPEqzdk89PA4gkX&index=7
+
+
+const emit = defineEmits( [ 'close','showModalApplyPayment' ] )
+
 const close = () => {
-  emit( 'close' )
+  emit( 'close', props.modal )
 }
 
-defineProps( {
-  countTickets: {
-    type: Number,
-    default: () => 0
-  }
-} )
+const showModalApplyPayment = () => {
+  emit( 'showModalApplyPayment', true )
+}
+
+// Funtions
+
+const plusCountOfTickets = () => {
+  console.log( 'plus', countOfTickets.value + 1 )
+}
+
+const info = () => {
+  console.log( 'date', date.value )
+  console.log( 'type', type.value )
+}
+
 
 </script>
 
@@ -72,14 +109,14 @@ defineProps( {
 }
 
 .payment-wrapper {
-  color: black;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 25%);
   width: 892px;
   height: 601px;
-  background-color: #F1ECEC;
+  border-radius: 10px;
+  background-color: #0f0f0f;
 }
 
 .payment__close {
@@ -90,7 +127,7 @@ defineProps( {
 }
 
 .payment__content {
-  height: 85%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,12 +149,19 @@ defineProps( {
   }
 }
 
+// .payment__button {
+//   position: absolute;
+//   top: 95%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   padding: 5px 10px;
+// }
+
 .payment__button {
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 5px 10px;
+  margin-top: 40px;
+  padding: 10px 25px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 </style>

@@ -99,6 +99,10 @@ export default defineComponent( {
   gap: 40px;
   margin-bottom: 68px;
 
+  &__wrapper {
+    margin-top: 50px;
+  }
+
   &__info {
     max-width: 443px;
     font-size: 24px;
