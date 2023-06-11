@@ -1,9 +1,53 @@
 <template>
   <div class="payment-apply__wrapper">
     <div class="payment-apply__close">
-      <svg-icon type="mdi" :path="path" @click="close"></svg-icon>
+      <svg-icon type="mdi" :path="path" @click="close"/>
     </div>
-    <div class="payment-apply__content">kakashka</div>
+    <div class="payment-apply__content">
+      <h2>
+        Оформление заказа
+      </h2>
+      <div class="payment-apply__content__inner">
+        <div class="payment-apply__content__ways-get">
+          <h3>
+            Способ получения
+          </h3>
+            <form class="payment-apply__content__ways-get__checkboxes">
+              <label for="courier">
+                <input type="checkbox" name="courier">
+                Курьером
+              </label>
+              <label for="mail">
+                <input type="checkbox" name="mail">
+                Электронный билет
+              </label>
+            </form>
+        </div>
+        <div class="payment-apply__content__order">
+          <h3>
+            Ваш заказ
+          </h3>
+          <div class="payment-apply__content__order__inner">
+            <p>
+              Детский
+            </p>
+            <p>
+              Взрослый
+            </p>
+          </div>
+        </div>
+        <div class="payment-apply__content__apply">
+          <h3>
+            Кол-во билетов
+          </h3>
+          <h3>
+            Итого
+          </h3>
+          <active-button class="payment__button">ПОДТВЕРДИТЬ ЗАКАЗ</active-button>
+        </div>
+      </div>
+      
+    </div>
   </div>
 </template>
 
@@ -12,8 +56,14 @@
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiClose } from '@mdi/js'
 
-import type { PropType } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import type { Modal } from '@/types/main'
+
+import activeButton from '@/components/ui/active-button.vue';
+
+defineComponent( {
+  activeButton
+} )
 
 const props = defineProps( {
   modal: {
@@ -40,14 +90,15 @@ const path = mdiClose
 }
 
 .payment-apply__wrapper {
-  color: black;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 25%);
-  width: 892px;
+  max-width: 892px;
+  width: 100%;
   height: 601px;
-  background-color: #F1ECEC;
+  border-radius: 10px;
+  background-color: #0f0f0f;
 }
 
 .payment-apply__close {
@@ -57,34 +108,75 @@ const path = mdiClose
   align-items: center;
 }
 
-.payment__content {
-  height: 85%;
+.payment-apply__content {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 50px;
   flex-direction: column;
-}
 
-.content__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.inner__info {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  &-input {
-    width: 100px;
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+  .payment-apply__content__ways-get {
+    &__checkboxes {
+      background-color: #393939;
+      padding: 20px 10px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+  }
+  .payment-apply__content__order {
+    &__inner {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 10px;
+      background-color: #393939;
+    }
+  }
+  .payment-apply__content__apply {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #393939;
+    padding: 0 10px;
+    grid-column-start: 2;
+    grid-row-start: 2;
   }
 }
 
+// .payment-apply__content {
+//   height: 85%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+// }
+
+// .content__inner {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+// }
+// .inner__info {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   gap: 10px;
+//   &-input {
+//     width: 100px;
+//   }
+// }
+
 .payment__button {
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   padding: 5px 10px;
 }
 

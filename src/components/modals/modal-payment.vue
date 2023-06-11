@@ -1,24 +1,28 @@
 <template>
   <div class="payment-wrapper">
     <div class="payment__close">
-      <svg-icon class="close" @click="close" type="mdi" :path="mdiClose"></svg-icon>
-      <svg-icon type="mdi" @click="plusCountOfTickets" :path="mdiPlus"></svg-icon>
+      <svg-icon class="close" @click="close" type="mdi" :path="mdiClose"/>
     </div>
     <div class="payment__content">
+      <h2>
+        Оформление заказа
+      </h2>
       <div class="content__inner">
         <div class="inner__info">
           <p>Тип билета</p>
           <select class="connent__inner-select" v-model="type">
-            <option v-for="price in priceList.prices" :key="price.id"  :value="price.type">{{ price.type }}</option>
+            <option v-for="price in priceList.prices" :key="price.id" :value="price.type">{{ price.type }}</option>
           </select>
         </div>
         <div class="inner__info">
           <p>Кол-во билетов</p>
-          <input class="inner__info-input" v-model="countOfTickets" type="number" min="1" max="100" @change="">
+          <svg-icon type="mdi" @click="minusCountOfTickets" :path="mdiMinus"/>
+          <input class="inner__info-input" v-model="countOfTickets" type="number" min="1" max="1000">
+          <svg-icon type="mdi" @click="plusCountOfTickets" :path="mdiPlus"/>
         </div>
         <div class="inner__info">
           <p>Дата посещения</p>
-          <input class="inner__info-input" type="date" v-model="date" @change="info">
+          <input class="inner__info-input" type="date" v-model="date" @change="info" style="width: 50%">
         </div>
       </div>
       <active-button class="payment__button" @click="showModalApplyPayment">Купить</active-button>
@@ -28,14 +32,15 @@
 
 <script lang="ts" setup>
 
+
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiClose, mdiPlus } from '@mdi/js'
+import { mdiClose, mdiPlus, mdiMinus } from '@mdi/js'
 
 import { priceListStore } from '@/stores/prices'
 
 import activeButton from '@/components/ui/active-button.vue';
 
-import { watchEffect, ref, defineComponent, defineProps } from 'vue'
+import { watchEffect, ref, defineComponent, defineProps, onMounted } from 'vue'
 
 import type { PropType } from 'vue'
 import type { Modal } from '@/types/main'
@@ -62,7 +67,6 @@ const type = ref<string>()
 const priceList = priceListStore()
 priceList.changeCountOfTickets( countOfTickets )
 
-
 // Watchers
 
 watchEffect (  () => {
@@ -73,7 +77,7 @@ watchEffect (  () => {
 
 // Emits
 
-// TODO: Сделать короче, 1 + и - чтобы работали, иконки с айконс, ииии посмотреть в интернете как реализован механизм измененния переменной внутри стора pinia курс кину в тг или сюда
+//TODO: Сделать короче, 1 + и - чтобы работали, иконки с айконс, ииии посмотреть в интернете как реализован механизм измененния переменной внутри стора pinia курс кину в тг или сюда
 // https://www.youtube.com/watch?v=ok9PE-XwXro 
 // https://www.youtube.com/watch?v=bAF5mSnJOzA&list=PL2hgv2vHkQ7DE77DNxPPEqzdk89PA4gkX&index=7
 
@@ -91,7 +95,11 @@ const showModalApplyPayment = () => {
 // Funtions
 
 const plusCountOfTickets = () => {
-  console.log( 'plus', countOfTickets.value + 1 )
+  countOfTickets.value++
+}
+
+const minusCountOfTickets = () => {
+  countOfTickets.value--
 }
 
 const info = () => {
@@ -99,6 +107,9 @@ const info = () => {
   console.log( 'type', type.value )
 }
 
+onMounted( () => {
+  console.log(  'hello' )
+} )
 
 </script>
 
@@ -113,7 +124,8 @@ const info = () => {
   top: 0;
   left: 50%;
   transform: translate(-50%, 25%);
-  width: 892px;
+  max-width: 892px;
+  width: 100%;
   height: 601px;
   border-radius: 10px;
   background-color: #0f0f0f;
@@ -132,6 +144,7 @@ const info = () => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 80px;
 }
 
 .content__inner {
@@ -158,7 +171,6 @@ const info = () => {
 // }
 
 .payment__button {
-  margin-top: 40px;
   padding: 10px 25px;
   border-radius: 4px;
   text-transform: uppercase;

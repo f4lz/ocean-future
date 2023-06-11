@@ -18,7 +18,8 @@ const priceList = priceListStore()
 .prices__box {
 	display: flex;
 	justify-content: space-between;
-	width: 620px;
+	max-width: 620px;
+	width: 100%;
 	align-items: center;
 }
 .ticket__type {

@@ -2,7 +2,7 @@
   <default-layout>
     <div class="container payment">
       <price-list/>
-      <active-button @click="showModalPayment">
+      <active-button class="button__payment" @click="showModalPayment">
         Купить
       </active-button>
       <modal-payment class="modal-payment" v-if="modalPay.display" @close="onclose" @showModalApplyPayment="showModalApplyPayment" :modal="modalPay"/>
@@ -41,6 +41,24 @@ window.addEventListener( 'keydown', ( event ) => {
     }
   }
 } )
+
+// const body = document.querySelector( 'body' )
+// body.addEventListener( 'click', ( event ) => {
+//   const modalPayDocument = document.querySelector( '.payment__content' )
+//   const buttonActive = document.querySelector( '.button__payment' )
+//   if ( event.target !== modalPayDocument && event.target !== buttonActive ) {
+//     console.log( event.target.className )
+//     if ( modalPay.display ) {
+//       console.log( 'this.widnwo' )
+//       onclose( modalPay )
+//     }
+//     if ( modalApplyPay.display ) {
+//       console.log( '1this.widnwo' )
+//       onclose( modalApplyPay )
+//       modalPay.display = true
+//     }
+//   }
+//  } )
 
 const modalPay = reactive( {
   display: false
