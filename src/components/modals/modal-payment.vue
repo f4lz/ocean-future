@@ -34,6 +34,7 @@
 
 
 import SvgIcon from '@jamescoyle/vue-icon'
+
 import { mdiClose, mdiPlus, mdiMinus } from '@mdi/js'
 
 import { priceListStore } from '@/stores/prices'
@@ -89,7 +90,7 @@ const close = () => {
 }
 
 const showModalApplyPayment = () => {
-  emit( 'showModalApplyPayment', true )
+  emit( 'showModalApplyPayment', true, type, countOfTickets )
 }
 
 // Funtions

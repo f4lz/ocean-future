@@ -34,5 +34,5 @@ export interface About {
 
 export interface Modal {
   display: boolean
-  props: object
+  props?: object
 }

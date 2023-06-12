@@ -6,7 +6,7 @@
         Купить
       </active-button>
       <modal-payment class="modal-payment" v-if="modalPay.display" @close="onclose" @showModalApplyPayment="showModalApplyPayment" :modal="modalPay"/>
-      <modal-apply-payment class="modal-payment" v-if="modalApplyPay.display" @close="onclose" :modal="modalApplyPay"/>
+      <modal-apply-payment class="modal-payment" v-if="modalApplyPay.display" @close="onclose" :modal="modalApplyPay" :type="type" :ticketsCount="ticketsCount"/>
     </div>
   </default-layout>
 </template>
@@ -19,8 +19,9 @@ import modalPayment from '@/components/modals/modal-payment.vue';
 import activeButton from '@/components/ui/active-button.vue';
 import modalApplyPayment from '@/components/modals/modal-apply-payment.vue';
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { defineComponent } from 'vue';
+import type { Modal } from '@/types/main';
 
 defineComponent( {
   defaultLayout,
@@ -42,6 +43,38 @@ window.addEventListener( 'keydown', ( event ) => {
   }
 } )
 
+const type = ref<string>( '' )
+const ticketsCount = ref<number>( 0 )
+
+// Modals
+
+const modalPay = reactive<Modal>( {
+  display: false
+} )
+
+const modalApplyPay = reactive<Modal>( {
+  display: false
+} )
+
+// Functions
+
+const showModalApplyPayment = ( showModalApplyPaymentDisplay: Modal, typeOfTicket: string, countOfTickets: number ) => {
+  type.value = typeOfTicket
+  ticketsCount.value = countOfTickets 
+  if ( showModalApplyPaymentDisplay ) {
+    onclose( modalPay )
+    modalApplyPay.display = true
+  }
+}
+
+const onclose = ( modal: Modal ) => {
+  modal.display = false
+}
+
+const showModalPayment = () => {
+  modalPay.display = modalPay.display = true
+}
+
 // const body = document.querySelector( 'body' )
 // body.addEventListener( 'click', ( event ) => {
 //   const modalPayDocument = document.querySelector( '.payment__content' )
@@ -59,31 +92,6 @@ window.addEventListener( 'keydown', ( event ) => {
 //     }
 //   }
 //  } )
-
-const modalPay = reactive( {
-  display: false
- } )
-
-const modalApplyPay = reactive( {
-  display: false
- } )
-
-
-const showModalApplyPayment = ( showModalApplyPaymentDisplay ) => {
-  if ( showModalApplyPaymentDisplay ) {
-    onclose( modalPay )
-    modalApplyPay.display = true
-  }
-}
-
- const onclose = ( modal ) => {
-  modal.display = false
- }
-
- const showModalPayment = () => {
-  modalPay.display = modalPay.display = true
- }
-
 
 </script>
 

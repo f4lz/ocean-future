@@ -1,7 +1,7 @@
 <template>
   <div class="payment-apply__wrapper">
     <div class="payment-apply__close">
-      <svg-icon type="mdi" :path="path" @click="close"/>
+      <svg-icon type="mdi" :path="mdiClose" @click="close"/>
     </div>
     <div class="payment-apply__content">
       <h2>
@@ -29,7 +29,7 @@
           </h3>
           <div class="payment-apply__content__order__inner">
             <p>
-              Детский
+              {{ type }}
             </p>
             <p>
               Взрослый
@@ -38,10 +38,10 @@
         </div>
         <div class="payment-apply__content__apply">
           <h3>
-            Кол-во билетов
+            Кол-во билетов {{ ticketsCount }}
           </h3>
           <h3>
-            Итого
+            Итого {{ ticketsCount }}
           </h3>
           <active-button class="payment__button">ПОДТВЕРДИТЬ ЗАКАЗ</active-button>
         </div>
@@ -69,7 +69,16 @@ const props = defineProps( {
   modal: {
     type: Object as PropType<Modal>,
     default: () => {},
+  },
+  ticketsCount: {
+    type: Number,
+    default: () => 0,
+  },
+  type: {
+    type: String,
+    default: () => ''
   }
+
 } )
 
 const emit = defineEmits( [ 'close' ] )
@@ -77,8 +86,6 @@ const emit = defineEmits( [ 'close' ] )
 const close = () => {
   emit( 'close', props.modal )
 }
-
-const path = mdiClose
 
 </script>
 

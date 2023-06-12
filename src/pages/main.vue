@@ -167,7 +167,7 @@ export default defineComponent( {
 }
 
 .icons {
-	padding: 150px 0 130px;
+	padding: 70px 0;
 	background-color: #181a1b;
 
 	&__wrapper {

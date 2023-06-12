@@ -29,4 +29,8 @@ export default defineComponent( {
 
 <style>
 
+.gallery-main-img {
+  margin-top: 30px;
+}
+
 </style>
