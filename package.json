@@ -19,6 +19,7 @@
     "pinia": "^2.0.32",
     "vite-plugin-require": "^1.1.10",
     "vue": "^3.2.47",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

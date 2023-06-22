@@ -1,8 +1,9 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import type { priceList } from '@/types/main'
 
 export const priceListStore = defineStore( 'prices', () => {
-  const prices = ref<priceList>( [
+  const prices = ref<priceList[]>( [
     {
       id: 1,
       type: 'Взрослый билет',
@@ -30,7 +31,8 @@ export const priceListStore = defineStore( 'prices', () => {
     },
   ] )
 
-  const changeCountOfTickets = ( countOfTickets ) => {
+  const changeCountOfTickets = ( countOfTickets: number ) => {
+    // @ts-ignore
     console.log( 'info for Sasha', countOfTickets.value )
   }
 

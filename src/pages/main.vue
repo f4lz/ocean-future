@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref } from 'vue'
 
 import inhabitantCard from '@/components/inhabitant-card.vue'
 import iconCard from '@/components/icon-card.vue'
@@ -55,6 +55,8 @@ import defaultLayout from '@/components/layouts/default.vue'
 import gallery from '@/components/gallery.vue'
 import banner from '@/components/banner.vue'
 import aboutCompany from '@/components/about-company.vue'
+
+import axios from 'axios'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -73,6 +75,10 @@ export default defineComponent( {
 	},
 
 	setup () {
+		onMounted( () => {
+			axios.get( 'https://jsonplaceholder.typicode.com/todos/1' ).then( ( { data } ) => console.log( data ) )
+		} )
+
 		const cards = ref<inhabitantCardType[]>( [
 			{
 				id: 1,

@@ -20,8 +20,8 @@ export interface priceList {
 }
 
 export interface RouteApi {
-  link: string
-  name: string
+  link?: string
+  name?: string
 }
 
 export interface About {
@@ -29,7 +29,7 @@ export interface About {
   description: string
   src: string
   alt: string
-  className: string
+  className?: string
 }
 
 export interface Modal {

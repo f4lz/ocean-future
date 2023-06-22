@@ -66,6 +66,7 @@ const type = ref<string>()
 //Store
 
 const priceList = priceListStore()
+// @ts-ignore
 priceList.changeCountOfTickets( countOfTickets )
 
 // Watchers

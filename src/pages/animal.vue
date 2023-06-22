@@ -7,7 +7,7 @@
         </h2>
         <p class="info__description">{{ card.description }}</p>
       </div>
-      <img :src="card.src" :alt="card.alt" />
+      <img :src="card.src" :alt="card.name" />
     </div>
   </default-layout>
 </template>
