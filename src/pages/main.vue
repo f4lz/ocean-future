@@ -56,7 +56,7 @@ import gallery from '@/components/gallery.vue'
 import banner from '@/components/banner.vue'
 import aboutCompany from '@/components/about-company.vue'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 import type { inhabitantCardType, iconsCard } from '@/types/main'
 
@@ -76,7 +76,8 @@ export default defineComponent( {
 
 	setup () {
 		onMounted( () => {
-			axios.get( 'https://jsonplaceholder.typicode.com/todos/1' ).then( ( { data } ) => console.log( data ) )
+			// axios.get( 'https://jsonplaceholder.typicode.com/todos/1' ).then( ( { data } ) => console.log( data ) )
+			
 		} )
 
 		const cards = ref<inhabitantCardType[]>( [

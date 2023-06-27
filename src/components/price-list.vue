@@ -8,8 +8,13 @@
 <script lang="ts" setup>
 
 import { priceListStore } from '@/stores/prices'
+import { onMounted } from 'vue';
 
 const priceList = priceListStore()
+
+onMounted ( () => { priceList.addPriceList() } )
+
+console.log( priceList )
 
 
 </script>

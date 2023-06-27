@@ -1,31 +1,31 @@
 <template>
   <default-layout>
-    <div v-for="animal of animals" :key="animal.id">
-      <h2>
-        {{ animal.name }}
-      </h2>
+    <div v-if="animalsList.animals">
+      <div v-for="animal of animalsList.animals" :key="animal.id">
+        <h2>
+          {{ animal.name }}
+        </h2>
+      </div>
     </div>
   </default-layout>
 </template>
 
 <script lang="ts" setup>
 
-import { ref } from'vue'
+import { onMounted } from'vue'
 
 import defaultLayout from '@/components/layouts/default.vue'
 
 import { defineComponent } from '@vue/composition-api';
 
+import { animalListStore } from '@/stores/animals';
+
 defineComponent( {
   defaultLayout
 } )
   
-//Variables
+const animalsList = animalListStore()
 
-const animals = ref( [ {
-  id: 2,
-  name: 'animal'
-} ] )
-
+onMounted ( () => { animalsList.getAnimals() } )
 
 </script>

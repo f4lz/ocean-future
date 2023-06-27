@@ -13,7 +13,6 @@
 
 import { ref } from 'vue'
 
-import type RouteApi from '@/types/main'
 
 defineProps( {
   activeClass: {
@@ -22,7 +21,7 @@ defineProps( {
   }
 } )
 
-const routes = ref<RouteApi>( [
+const routes = ref( [
   {
     link: 'tickets',
     name: 'Билеты'
